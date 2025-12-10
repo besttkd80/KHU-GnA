@@ -73,3 +73,11 @@
   flex: 1 1 auto;
   min-width: 0;                   /* 긴 제목 줄바꿈 시 레이아웃 흔들림 방지 */
 }
+
+/* Research interest 줄바꿈 자연스럽게 */
+.card-body,
+.card-text {
+  word-break: keep-all;          /* 단어 단위 줄바꿈 */
+  overflow-wrap: break-word;     /* 너무 긴 단어는 자연스럽게 처리 */
+  white-space: normal;           /* 강제 한 줄 유지 같은 문제 제거 */
+}
