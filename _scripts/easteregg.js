@@ -1,3 +1,6 @@
+if (window._easterEggLoaded) return;
+window._easterEggLoaded = true;
+
 (function () {
   let buffer = "";
   const secret = "gna";
