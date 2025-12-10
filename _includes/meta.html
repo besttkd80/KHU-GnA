@@ -32,13 +32,13 @@
 
 {% assign description = description | xml_escape %}
 
-{% assign png = "images/icon.png" | file_exists %}
-{% assign jpg = "images/icon.jpg" | file_exists %}
-{% assign icon = png | default: jpg | relative_url %}
+{%- comment -%}
+  GitHub Pages(Jekyll 3.10)에서는 `file_exists` 필터를 지원하지 않기 때문에
+  단일 기본 아이콘/이미지를 사용하도록 안전하게 변경함.
+{%- endcomment -%}
 
-{% assign jpg = "images/share.jpg" | file_exists %}
-{% assign png = "images/share.png" | file_exists %}
-{% assign share = jpg | default: png | relative_url %}
+{% assign icon = "images/icon.png" | relative_url %}
+{% assign share = "images/share.jpg" | relative_url %}
 
 {% assign published = page.date | date_to_xmlschema %}
 {% assign updated = page.last_modified_at | date_to_xmlschema %}
@@ -79,25 +79,25 @@
 {% endif %}
 
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    {% if page.author %}
-      "@type": "BlogPosting",
-      "author": { "@type": "Person", "name": "{{ title }}" },
-      "datePublished": "{{ published }}",
-      "dateModified": "{{ updated }}",
-    {% else %}
-      "@type": "WebSite",
-    {% endif %}
-    "name": "{{ title }}",
-    "description": "{{ description }}",
-    "headline": "{{ title }}",
-    "publisher": {
-      "@type": "Organization",
-      "logo": { "@type": "ImageObject", "url": "{{ icon }}" }
-    },
-    "url": "{{ url }}"
-  }
+{
+  "@context": "https://schema.org",
+  {% if page.author %}
+    "@type": "BlogPosting",
+    "author": { "@type": "Person", "name": "{{ title }}" },
+    "datePublished": "{{ published }}",
+    "dateModified": "{{ updated }}",
+  {% else %}
+    "@type": "WebSite",
+  {% endif %}
+  "name": "{{ title }}",
+  "description": "{{ description }}",
+  "headline": "{{ title }}",
+  "publisher": {
+    "@type": "Organization",
+    "logo": { "@type": "ImageObject", "url": "{{ icon }}" }
+  },
+  "url": "{{ url }}"
+}
 </script>
 
 <link rel="alternate" type="application/rss+xml" href="{{ feed }}">
