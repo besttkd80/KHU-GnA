@@ -25,7 +25,7 @@
 .card-text {
   display: inline-flex;
   justify-content: flex-start;
-  align-items: stretch !important;   /* ✔ 텍스트가 전체 폭을 쓰도록 강제 */
+  align-items: stretch !important;   /* ✔ 텍스트가 전체 가로폭 사용 */
   flex-direction: column;
   gap: 20px;
   max-width: 100%;
@@ -69,7 +69,7 @@
   max-width: none !important;
 }
 
-/* ▣ 텍스트 본문 영역 */
+/* ▣ 텍스트 본문 */
 .card-body {
   flex: 1 1 auto;
   min-width: 0;
@@ -83,7 +83,7 @@
   white-space: normal;
 }
 
-/* ▣ 왼쪽 정렬 강제 (justify 제거) */
+/* ▣ 기본 텍스트 왼쪽 정렬 */
 .card-body,
 .card-text,
 .card-text p,
@@ -91,10 +91,17 @@
   text-align: left !important;
 }
 
-/* ▣ 리스트(li) 줄바꿈 비정상 문제 해결 */
+/* ▣ 리스트(li) 줄바꿈 문제 해결 */
 .card-text li {
-  display: list-item !important;     /* ✔ inline-block 문제 제거 */
-  white-space: normal !important;    /* ✔ 자연 줄바꿈 */
-  word-break: keep-all !important;   /* ✔ 영어 단어 단위로 줄바꿈 */
-  width: 100% !important;            /* ✔ flex 안에서 폭 제한 문제 해결 */
+  display: list-item !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  width: 100% !important;            /* ✔ flex 영향 제거 */
+}
+
+/* ⭐ 가장 중요한 부분: p 안 justify 제거 */
+.card-text p {
+  text-align: left !important;       /* ✔ 단어 간 간격 벌어짐 완전 차단 */
+  white-space: normal !important;
+  word-break: keep-all !important;
 }
