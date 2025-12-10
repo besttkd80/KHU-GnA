@@ -1,43 +1,44 @@
-# =========================
-# site properties and page defaults
-# =========================
-title: Growth and Aging Lab
-subtitle: Exercise Physiology
-description: Research on exercise physiology and aging.
-header: images/background2.jpg
-footer: images/background2.jpg
+# ============================================
+# SITE INFORMATION
+# ============================================
+title: "Growth and Aging Lab"
+subtitle: "Exercise Physiology"
+description: "Research on exercise physiology, aging, and data-driven analysis."
+header: "images/background2.jpg"
+footer: "images/background2.jpg"
+
 proofer: false
 
-# (선택) 나중에 도메인 고정되면 주석 해제하고 사용
-# url: "https://your-domain.example.com"
-baseurl: ""   # 루트 배포일 땐 빈 문자열
+# GitHub Pages deployment settings
+url: "https://besttkd80.github.io"   # GitHub Pages 기본 도메인
+baseurl: "/KHU-GnA"                  # 리포지토리 이름 (절대 비우면 안 됨)
 
-# =========================
-# site social media and other links
-# =========================
+# ============================================
+# SOCIAL / CONTACT
+# ============================================
 links:
-  email: jhc@khu.ac.kr
-  orcid: 0000-0002-3465-8965
-  google-scholar: https://scholar.google.com/citations?user=qm1Ao-oAAAAJ&hl=ko&oi=ao
-  youtube: YourLabChannel
+  email: "jhc@khu.ac.kr"
+  orcid: "0000-0002-3465-8965"
+  google-scholar: "https://scholar.google.com/citations?user=qm1Ao-oAAAAJ&hl=ko&oi=ao"
+  youtube: "YourLabChannel"
 
-# =========================
-# jekyll settings
-# =========================
-
-# front matter defaults
+# ============================================
+# COLLECTIONS & DEFAULTS
+# ============================================
 defaults:
   # all markdown files
   - scope:
       path: ""
     values:
       layout: default
-  # markdown files in /_members
+
+  # member profiles
   - scope:
       type: "members"
     values:
       layout: member
-  # markdown files in /_posts
+
+  # blog posts
   - scope:
       type: "posts"
     values:
@@ -49,34 +50,44 @@ collections:
   posts:
     output: true
 
-# plugins
+# ============================================
+# JEKYLL SETTINGS
+# ============================================
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Plugins enabled by GitHub Pages
 plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-feed
   - jekyll-last-modified-at
 
-# markdown / permalinks (필요시 조정)
-markdown: kramdown
-highlighter: rouge
-permalink: /:categories/:title/
+# ============================================
+# THEME SETTINGS
+# ============================================
+theme: null   # 로컬 커스텀 테마 사용
 
-# theme
-theme: null
-
-# sass settings
+# ============================================
+# SASS & ASSET PIPELINE
+# ============================================
 sass:
   sass_dir: _styles
 
-# include/exclude
 include:
   - _styles
   - _scripts
+
 exclude:
   - README.md
   - LICENSE.md
   - CITATION.cff
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
 
-# (선택) 빌드/로컬 설정 예시
+# Optional settings
 # timezone: Asia/Seoul
-# lang: ko
+# lang: en
