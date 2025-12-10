@@ -26,24 +26,14 @@
     {{ site.subtitle }}. {{ description }}
   {%- endcapture %}
 {% endif %}
-{% capture url -%}
-  {{ site.url }}{{ site.baseurl }}
-{%- endcapture %}
+{% capture url -%}{{ site.url }}{{ site.baseurl }}{%- endcapture %}
 
 {% assign description = description | xml_escape %}
 
-{%- comment -%}
-  GitHub Pages(Jekyll 3.10)에서는 `file_exists` 필터를 지원하지 않기 때문에
-  단일 기본 아이콘/이미지를 사용하도록 안전하게 변경함.
-{%- endcomment -%}
-
 {% assign icon = "images/icon.png" | relative_url %}
-{% assign share = "images/share.jpg" | relative_url %}
 
-{% assign published = page.date | date_to_xmlschema %}
-{% assign updated = page.last_modified_at | date_to_xmlschema %}
-
-{% assign feed = "feed.xml" | absolute_url %}
+<!-- 절대 경로 OG 이미지 -->
+{% assign share_abs = site.url | append: site.baseurl | append: "/images/share.jpg" %}
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -58,14 +48,14 @@
 <meta property="og:site_title" content="{{ site.title | xml_escape }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ url }}">
-<meta property="og:image" content="{{ share }}">
+<meta property="og:image" content="{{ share_abs }}">
 <meta property="og:locale" content="en_US">
 
 <meta property="twitter:title" content="{{ title }}">
 <meta property="twitter:description" content="{{ description }}">
 <meta property="twitter:url" content="{{ url }}">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:image" content="{{ share }}">
+<meta property="twitter:image" content="{{ share_abs }}">
 
 {% if page.author %}
   <meta name="author" content="{{ page.author | xml_escape }}">
@@ -99,5 +89,3 @@
   "url": "{{ url }}"
 }
 </script>
-
-<link rel="alternate" type="application/rss+xml" href="{{ feed }}">
