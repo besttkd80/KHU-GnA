@@ -43,3 +43,8 @@ header[data-big] .subtitle {
   font-size: calc(var(--large) * 1.05);
   opacity: 0.75;
 }
+
+/* 헤더 아래 여백 줄이기 */
+header[data-big] {
+  padding: 20px 20px !important;
+}
