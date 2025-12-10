@@ -30,10 +30,25 @@
 
 {% assign description = description | xml_escape %}
 
-{% assign icon = "images/icon.png" | relative_url %}
+{%- comment -%}
+===========================================
+ FAVICON (브라우저 탭 아이콘)
+===========================================
+- 반드시 images/icon.png 파일이 존재해야 합니다.
+===========================================
+{%- endcomment -%}
+{% assign icon = "/images/icon.png" %}
 
-<!-- 절대 경로 OG 이미지 -->
-{% assign share_abs = site.url | append: site.baseurl | append: "/images/share.jpg" %}
+{%- comment -%}
+===========================================
+ OG / TWITTER / SLACK 공유 이미지
+===========================================
+- SNS 썸네일용 share.png를 절대경로로 지정
+- GitHub Pages는 절대경로 필요
+- 반드시 images/share.png 파일이 존재해야 합니다.
+===========================================
+{%- endcomment -%}
+{% assign share_abs = site.url | append: site.baseurl | append: "/images/share.png" %}
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
