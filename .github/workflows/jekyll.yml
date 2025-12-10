@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -20,15 +20,13 @@ jobs:
           ruby-version: '3.0'
 
       - name: Install dependencies
-        run: |
-          bundle install
+        run: bundle install
 
       - name: Build Jekyll site
-        run: |
-          bundle exec jekyll build -V
+        run: bundle exec jekyll build -V
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: site
           path: _site
