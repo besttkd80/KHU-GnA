@@ -49,7 +49,7 @@ if (!window._easterEggLoaded) {
           "
         >
 
-        <b style="font-size:1.15rem; display:block; margin-bottom:6px;">
+        <span style="white-space: nowrap; display:block; text-align:center;">
           본 사이트 제작
         </b>
 
