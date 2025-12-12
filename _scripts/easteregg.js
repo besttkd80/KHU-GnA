@@ -1,3 +1,4 @@
+<script>
 if (!window._easterEggLoaded) {
   window._easterEggLoaded = true;
 
@@ -26,7 +27,7 @@ if (!window._easterEggLoaded) {
         border-radius: 16px;
         box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         font-size: 1.1rem;
-        text-align: center;  /* 전체 중앙 정렬 */
+        text-align: center;
         line-height: 1.5;
         max-width: 350px;
         animation: popIn 0.3s ease-out;
@@ -36,7 +37,7 @@ if (!window._easterEggLoaded) {
         <strong style="font-size:1.3rem;">🎉 이스터에그 발견!</strong><br><br>
 
         <img 
-          src="${window.location.origin}/GnA/images/members/Prof/교수님2.jpg"
+          src="/images/members/Prof/교수님2.jpg"
           alt="Professor"
           style="
             width: 200px;
@@ -53,7 +54,7 @@ if (!window._easterEggLoaded) {
           본 사이트 제작
         </b>
 
-        <div style="display:flex; justify-content:center; margin-top:0;">
+        <div style="display:flex; justify-content:center;">
           <span style="white-space: nowrap;">
             정형웅(메인) · 안예진(서브) · 송지영(서브)
           </span>
@@ -98,3 +99,4 @@ if (!window._easterEggLoaded) {
     document.head.appendChild(style);
   })();
 }
+</script>
