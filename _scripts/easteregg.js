@@ -36,7 +36,7 @@ if (!window._easterEggLoaded) {
         <strong style="font-size:1.3rem;">🎉 이스터에그 발견!</strong><br><br>
 
         <img 
-          src="${window.location.origin}/KHU-GnA/images/members/Prof/교수님2.jpg"
+          src="${window.location.origin}/images/members/Prof/교수님2.jpg"
           alt="Professor"
           style="
             width: 200px;
